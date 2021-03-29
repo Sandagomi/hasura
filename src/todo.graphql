@@ -1,0 +1,22 @@
+query FetchAllTodos {
+  todo {
+    completed
+    created_at
+    description
+    dueDate
+    id
+    name
+    updated_at
+  }
+}
+
+mutation CreateTodo($description: String!, $name: String!, $dueDate: timestamptz) {
+  insert_todo_one(object: {description: $description,  name: $name, dueDate: $dueDate}) {
+    id
+    description
+    name
+    created_at
+    completed
+    dueDate
+  }
+}
